@@ -1,6 +1,8 @@
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class registerTest {
@@ -21,6 +23,8 @@ public class registerTest {
         driver.findElement(By.cssSelector("#password")).sendKeys("parola17");
         driver.findElement(By.cssSelector("#confirmation")).sendKeys("parola17");
         driver.findElement(By.cssSelector(".control > label")).click();
+        WebElement EnterInformation = driver.findElement(By.cssSelector("p.form-instructions"));
+        Assert.assertEquals("Please enter the following information to create your account.", EnterInformation.getText());
 
         driver.quit();
 
